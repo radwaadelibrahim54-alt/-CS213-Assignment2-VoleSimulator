@@ -1,0 +1,15 @@
+
+; ----------------------------------------------------------------
+
+;Vole Machine program 2
+;Purpose : Perform a bitwise OR operation between two numbers (6 and 8 ) ,
+;and display the result on the screen.
+
+; ----------------------------------------------------------------
+
+2006 ; Load the first number (6) into register 0
+2108 ; Load the second number (8) into register 1
+7201 ; Perform bitwise OR between R0 and R1 , store in R2
+32FF ; Display the result in R2 on the screen
+C000 ; Halt the program
+

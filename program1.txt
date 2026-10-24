@@ -1,0 +1,15 @@
+; ----------------------------------------------------------------
+
+;Vole Machine program 1
+;Purpose : Load two numbers (3 and 5 ) , add them ,
+;and display the result (8) on the screen.
+
+; ----------------------------------------------------------------
+
+2003 ; Load the first number (3) into register 0
+2105 ; Load the second number (5) into register 1
+5201 ; Add R0 and R1 , store in R2
+32FF ; Display the result in R2 on the screen
+C000 ; Halt the program
+
+
