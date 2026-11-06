@@ -14,3 +14,5 @@ class Screen {
     std::string getOutput () const;
 
 };
+
+
