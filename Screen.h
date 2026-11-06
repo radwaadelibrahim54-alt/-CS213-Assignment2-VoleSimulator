@@ -1,7 +1,7 @@
 #pragma once
-#include <iostream>
 #include <string>
 #include <cstdint>
+using byte = uint8_t;
 
 class Screen {
     private:
@@ -10,7 +10,7 @@ class Screen {
     public:
     Screen();
     void clear();
-    void write(uint8_t value);
+    void writeByte(byte value);
     std::string getOutput () const;
 
 };
