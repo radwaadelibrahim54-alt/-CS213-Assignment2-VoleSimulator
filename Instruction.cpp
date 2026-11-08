@@ -1,14 +1,13 @@
-
 #include "Instruction.h"
 #include "ExecutionContext.h"
 #include"RegisterFile.h"
 
-// Constructor
+
 Instruction::Instruction(DecodedInstruction d) : dec(d)
 {
 }
 
-// 1. Add Integer
+
 void AddIntInstruction::execute(ExecutionContext& ctx)
 {
     uint8_t val1 = ctx.registers.read(dec.s);
@@ -19,7 +18,7 @@ void AddIntInstruction::execute(ExecutionContext& ctx)
     ctx.registers.write(dec.r, result);
 }
 
-// 2. Add Floating Point
+
 void AddFloatInstruction::execute(ExecutionContext& ctx)
 {
     uint8_t val1 = ctx.registers.read(dec.s);
@@ -30,7 +29,7 @@ void AddFloatInstruction::execute(ExecutionContext& ctx)
     ctx.registers.write(dec.r, result);
 }
 
-// 3. OR
+
 void OrInstruction::execute(ExecutionContext& ctx)
 {
     uint8_t val1 = ctx.registers.read(dec.s);
@@ -41,7 +40,7 @@ void OrInstruction::execute(ExecutionContext& ctx)
     ctx.registers.write(dec.r, result);
 }
 
-// 4. AND
+
 void AndInstruction::execute(ExecutionContext& ctx)
 {
     uint8_t val1 = ctx.registers.read(dec.s);
@@ -52,7 +51,7 @@ void AndInstruction::execute(ExecutionContext& ctx)
     ctx.registers.write(dec.r, result);
 }
 
-// 5. XOR
+
 void XorInstruction::execute(ExecutionContext& ctx)
 {
     uint8_t val1 = ctx.registers.read(dec.s);
@@ -63,12 +62,12 @@ void XorInstruction::execute(ExecutionContext& ctx)
     ctx.registers.write(dec.r, result);
 }
 
-// 6. Rotate Right
+
 void RotateInstruction::execute(ExecutionContext& ctx)
 {
     uint8_t value = ctx.registers.read(dec.r);
 
-    // In AR0X, X is the last nibble (t)
+    
     uint8_t steps = dec.t;
 
     uint8_t result = ctx.alu.rotateRight(value, steps);
@@ -76,7 +75,7 @@ void RotateInstruction::execute(ExecutionContext& ctx)
     ctx.registers.write(dec.r, result);
 }
 
-// 7. Jump
+
 void JumpInstruction::execute(ExecutionContext& ctx)
 {
     uint8_t registerValue = ctx.registers.read(dec.r);
@@ -88,13 +87,13 @@ void JumpInstruction::execute(ExecutionContext& ctx)
     }
 }
 
-// 8. Halt
+
 void HaltInstruction::execute(ExecutionContext& ctx)
 {
     ctx.cpu.halt();
 }
 
-// 9. Load from Memory
+
 void LoadMemoryInstruction::execute(ExecutionContext& ctx)
 {
     uint8_t value = ctx.memory.read(dec.xy);
@@ -102,13 +101,13 @@ void LoadMemoryInstruction::execute(ExecutionContext& ctx)
     ctx.registers.write(dec.r, value);
 }
 
-// 10. Load Immediate Value
+
 void LoadValueInstruction::execute(ExecutionContext& ctx)
 {
     ctx.registers.write(dec.r, dec.xy);
 }
 
-// 11. Store
+
 void StoreInstruction::execute(ExecutionContext& ctx)
 {
     uint8_t value = ctx.registers.read(dec.r);
@@ -123,10 +122,10 @@ void StoreInstruction::execute(ExecutionContext& ctx)
     }
 }
 
-// 12. Move
+
 void MoveInstruction::execute(ExecutionContext& ctx)
 {
-    // In 40RS: R is in s, and S is in t
+    
     uint8_t value = ctx.registers.read(dec.s);
 
     ctx.registers.write(dec.t, value);
