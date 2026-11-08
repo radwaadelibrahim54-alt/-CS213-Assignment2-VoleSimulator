@@ -9,7 +9,6 @@ class Screen {
 
     public:
     Screen();
-    void clear();
     void writeByte(byte value);
     std::string getOutput () const;
 
