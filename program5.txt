@@ -1,0 +1,12 @@
+;vole Machine program 5 (Two's Complement Addition)
+;purpose : Load two numbers (6,4),
+;add them,
+;and display the result (10) on the screen.
+;Note: Any overflow is automatically ignored.
+         -------------------------------;
+
+    2006; Load the first number (6) int register 0
+    2104; Load the second number (4) into register 1
+    5201; Add R0 and R1 , store in R2
+    32FF; display the result in R2 on the screen
+    C000; Halt the program        
