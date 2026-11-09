@@ -1,5 +1,5 @@
 ;--------------------------------------
-;Vole Machine program B (Jump) 
+;Vole Machine program ( Jump if equal ) 
 ;Purpose : Load two equal numbers ( 5 and 5),
 ;jump over one instruction when they are equal,
 ;and display the result (A) on the screen.
