@@ -1,0 +1,11 @@
+;---------------------------------------
+;Vole Machine program 3 ( store to screen)
+;purpose : Load the ASCII codes of A and B 
+;and display them on the screen using address 32FF
+;----------------------------------------
+
+2041 ; Load 41 ( the letter A ) into register 0
+2142 ; Load 42 ( the letter B ) into register 1
+30FF ; display the content of R0 (A) on the screen
+31FF ; display the content of R1 (B) on the screen
+C000 ; Halt the program
